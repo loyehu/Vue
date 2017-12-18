@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:id="id">
+            v-bind,18
+        </div>
+        <div id="id">
+            id
+        </div>
+        <!-- v-bind 可以省略，用：代替 -->
+        <div :id="id">
+            v-bind,18
+        </div>
+        <!-- 显示图片 -->
+        <img :src="imgs" alt="">
+    </div>
+    <script>
+        let data = {
+            msg: 'hello vue~',
+            id: 18,
+            imgs: "http://img2.woyaogexing.com/2017/09/08/6eb31784dc036adf%21600x600.jpg"
+        }
+        
+        let vm = new Vue({
+            el: "#app",
+            data: data
+        })
+    </script>
+</body>
+</html>

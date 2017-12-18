@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+   <div id="app">
+        {{message}}
+        <div v-if="show">{{data}}</div>
+    </div> 
+    <script>
+        var app = new Vue({
+            // 接管 DOM里面以APP 为id的标签里面的所有DOM
+            el: '#app',
+            data: {
+                message: 'hello Vue!',
+                data: "happy",
+                // 根据表达式的值的真假条件渲染元素
+                show: false
+            }
+        })
+    </script>
+</body>
+</html>

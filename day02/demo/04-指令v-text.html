@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{content}}
+        <!-- 直接以文本的形式解析 content内容 -->
+        <div v-text="content"></div>    
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                content: "<h1>This is Vue</h1>"
+            }
+        })
+    </script>
+</body>
+</html>

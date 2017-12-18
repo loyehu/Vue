@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <button id="btn">点我啊</button>
+        <button onclick="change()">更新</button>
+        <button onclick="destroy()">销毁</button>
+    </div>
+
+    <script>
+        $("#btn").click(function(){
+            alert("我是jQuery点击事件~");
+        })
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                message: "hello Vue"
+            },
+            // 执行顺序和代码放的前后位置没有关系，只有vue生命周期的顺序有关
+            beforeCreate(){
+                alert("实例创建前~");
+            },
+            created(){
+                alert("实例创建完成~");
+                // 点击事件不执行
+                $("#btn").click(function(){
+                    alert("我是jQuery点击事件~");
+                })
+            },
+            beforeMount(){
+                alert("实例挂载前~");
+            },
+            mounted(){
+                alert("实例挂载完成~");
+                // 点击事件执行
+                $("#btn").click(function(){
+                    alert("我是jQuery点击事件~");
+                })
+            },
+            beforeUpdate(){
+                alert("实例更新前~");
+            },
+            updated(){
+                alert("实例更新完成~");
+            },
+            beforeDestroy(){
+                alert("实例销毁前~");
+            },
+            destroyed(){
+                alert("实例已经销毁~")
+            }
+        })
+        function change(){
+            vm.message = "hi vue~"
+        }
+        function destroy(){
+            vm.$destroy();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show">show</button>
+        <button v-on:mouseover="move">move</button>
+        <button v-on:dblclick="dblclick">dblclick</button>
+        <!-- v-on 可以简写 @ -->
+        <button @click="show">show</button>
+        <button @click="add('66')">add</button>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                arr: ['22','33','44','55']
+            },
+            methods: {
+                show: function(){
+                    console.log("点击了show按钮~");
+                },
+                move: function(){
+                    console.log("触发了mouseover事件~");
+                },
+                dblclick: function(){
+                    console.log("双击了dblclick按钮~");
+                },
+                add: function(data){
+                    console.log(this);
+                    this.arr.push(data);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

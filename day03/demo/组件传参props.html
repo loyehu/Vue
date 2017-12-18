@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <!-- class三个类名 第一个、第三个固定，第二个表示颜色，可以自定义 -->
+    <!-- <button class="ui blue button">保存</button>
+    <button class="ui purple button">复制</button>
+    <button class="ui orange button">剪切</button> -->
+    <div id="app">
+        <!-- 属性传参 -->
+        <ui-button text="保存"></ui-button>
+        <ui-button text="复制"></ui-button>
+        <ui-button text="剪切"></ui-button>
+        <ui-button text="删除"></ui-button>
+    </div>
+</body>
+<script>
+    Vue.component('ui-button',{
+        template: '<button class="ui orange button">{{text}}</button>',
+        props:['text']
+    })
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            msg: 'hi'
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>hello vue~</span>
+    </div>
+    <script type="x-template" id="tem">
+        <div>
+            春花，夏果，秋风，冬雪~
+        </div>
+    </script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data:{
+                html:'<div>this is vue</div>'
+            },
+            template: "#tem"
+        })
+    </script>
+</body>
+</html>
