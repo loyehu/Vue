@@ -10,7 +10,25 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // 只要遇到以 /api 开头的都会把主机名 替换为 http://news-at.zhihu.com
+      // 背后使用node.js 请求下面真实的url，然后把数据给你
+      // 因为node不会跨域
+      // https://news-at.zhihu.com/api/4/news/latest
+
+      // '/api/news/latest'
+      '/api' :{ // 监听路由含有 以 /api 开头的路由，就走下面的规则
+        target: 'http://news-at.zhihu.com',   // 把主机替换掉这个地址
+        changeOrigin: true,   // 替换源码
+        pathRewrite: {    // 重写 把 /api 开头的重写为 /api/4 开头的
+          '^/api': '/api/4',
+          // https://news-at.zhihu.com + /api/4 + /news/latest
+          
+          // 最终访问的url是下面的
+          // https://news-at.zhihu.com/api/4/news/latest
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

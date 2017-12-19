@@ -8,7 +8,7 @@
         name: 'article',
         created(){
             console.log(this.$route.params)
-            console.log(this)
+            // console.log(this)
         }
     }
 </script>

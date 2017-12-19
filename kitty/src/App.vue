@@ -8,6 +8,9 @@
     <router-link active-class="lala" to="/study">学习</router-link>
     <router-link to="/" exact>啦啦</router-link>
     <router-link to="/article">文章</router-link>
+    <router-link to="/user">用户信息</router-link>
+    <router-link to="/daily">daily</router-link>
+     
     <img src="./assets/logo.png">
     <router-view/>
   </div>
